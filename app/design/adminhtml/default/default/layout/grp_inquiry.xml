@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Grp_Inquiry extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Grp
+ * @package        Grp_Inquiry
+ * @copyright      Copyright (c) 2014
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+--> 
+<layout>
+    <adminhtml_inquiry_inquiry_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>sales/grp_inquiry/inquiry</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="grp_inquiry/adminhtml_inquiry" name="inquiry" />
+
+        </reference>
+    </adminhtml_inquiry_inquiry_index>
+    <adminhtml_inquiry_inquiry_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="grp_inquiry/adminhtml_inquiry_grid" name="inquiry_grid"/>
+        </block>
+    </adminhtml_inquiry_inquiry_grid>
+    <!-- Inquiry add/edit action -->
+    <adminhtml_inquiry_inquiry_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>sales/grp_inquiry/inquiry</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="grp_inquiry/adminhtml_inquiry_edit" name="inquiry_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="grp_inquiry/adminhtml_inquiry_edit_tabs" name="inquiry_tabs"></block>
+        </reference>
+    </adminhtml_inquiry_inquiry_edit>
+
+    <adminhtml_inquiry_inquiry_comment_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>sales/grp_inquiry/inquiry_comment</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="grp_inquiry/adminhtml_inquiry_comment" name="inquiry_comment_grid"/>
+        </reference>
+    </adminhtml_inquiry_inquiry_comment_index>
+    <adminhtml_inquiry_inquiry_comment_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="grp_inquiry/adminhtml_inquiry_comment_grid" name="inquiry_comment_grid"/>
+        </block>
+    </adminhtml_inquiry_inquiry_comment_grid>
+    <adminhtml_inquiry_inquiry_comment_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>sales/grp_inquiry/inquiry_comment</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="grp_inquiry/adminhtml_inquiry_comment_edit" name="inquiry_comment_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="grp_inquiry/adminhtml_inquiry_comment_edit_tabs" name="inquiry_comment_tabs"></block>
+        </reference>
+    </adminhtml_inquiry_inquiry_comment_edit>
+</layout>

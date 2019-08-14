@@ -1,0 +1,84 @@
+<?php
+/**
+ * Grp_Inquiry extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Grp
+ * @package        Grp_Inquiry
+ * @copyright      Copyright (c) 2014
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Inquiry view template
+ *
+ * @category    Grp
+ * @package     Grp_Inquiry
+ * @author      Grapes-solutions.com
+ */
+?>
+<?php $_inquiry = $this->getCurrentInquiry();?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="page-title inquiry-title">
+    <h1><?php echo 'Product Inquiry'; ?></h1>
+</div>
+<div class="inquiry-view">
+    <div class="inquiry-form">
+        <form enctype="multipart/form-data" class="scaffold-form" id="form-inquiry" method="post" action="<?php echo Mage::getUrl("grp_inquiry/inquiry/postinquiry")?>">
+            <div class="fieldset">
+                <input type="hidden" name="product_id" value="<?php echo Mage::registry('product_id'); ?>"/>
+                <p class="form-instructions">Please enter the following information to inquiry.</p>
+            <p class="required">* Required Fields</p>
+            <ul class="form-list">
+                <li class="fields">
+                   
+                        <label class="required" for="firstname"><em>*</em>First Name</label>
+                        <div class="input-box">
+                            <input type="text" class="input-text required-entry" maxlength="255" title="First Name" value="" name="firstname" id="firstname">
+                        </div>
+                    </li>
+                <li> 
+                        <label class="required" for="lastname"><em>*</em>Last Name</label>
+                        <div class="input-box">
+                            <input type="text" class="input-text required-entry" maxlength="255" title="Last Name" value="" name="lastname" id="lastname">
+                        </div>
+                    
+                </li>
+                <li>
+                    <label class="required" for="email_address"><em>*</em>Email Address</label>
+                    <div class="input-box">
+                        <input type="email" class="input-text validate-email required-entry" title="Email Address" value="" id="email_address" name="email" spellcheck="false" autocorrect="off" autocapitalize="off">
+                    </div>
+                </li>
+                <li>
+                    <label  class="required" for="phone"><em>*</em>Phone</label>
+                    <div class="input-box">
+                        <input type="text" class="input-text validate-phoneLax required-entry" title="Phone number" value="" id="phone" name="phone" spellcheck="false" autocorrect="off" autocapitalize="off">
+                    </div>
+                </li>    
+                <li>
+                    <label  class="required" for="content">Content</label>
+                    <div class="input-box">
+                        <textarea name="content" id="content" class="required-entry" ></textarea>
+                    </div>
+                </li>
+            </ul>
+            </div>
+            <div class="buttons-set">
+            <button type="submit"  title="<?php echo $this->__('Submit') ?>" class="button"><span><span><?php echo $this->__('Submit') ?></span></span></button>
+            </div>
+        </form> 
+        <script type="text/javascript">
+    //<![CDATA[
+        var dataForm = new VarienForm('form-inquiry', true);
+       
+    //]]>
+    </script>
+    </div>
+
+</div>

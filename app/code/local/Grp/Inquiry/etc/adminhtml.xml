@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Grp_Inquiry extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Grp
+ * @package        Grp_Inquiry
+ * @copyright      Copyright (c) 2014
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <grp_inquiry translate="title" module="grp_inquiry">
+                                        <title>Inquiry</title>
+                                    </grp_inquiry>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <sales>
+                        <children>
+                            <grp_inquiry translate="title" module="grp_inquiry">
+                                <title>Inquiry</title>
+                                <children>
+                                    <inquiry translate="title" module="grp_inquiry">
+                                        <title>Inquiry</title>
+                                        <sort_order>0</sort_order>
+                                    </inquiry>
+                                   
+                                </children>
+                            </grp_inquiry>                        </children>
+                    </sales>
+
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <sales>
+            <children>
+                <grp_inquiry translate="title" module="grp_inquiry">
+                    <title>Inquiry</title>
+                    <action>adminhtml/inquiry_inquiry</action>
+                    <sort_order>300</sort_order>
+                   
+                </grp_inquiry>            </children>
+        </sales>
+
+    </menu>
+</config>

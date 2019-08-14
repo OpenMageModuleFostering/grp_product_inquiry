@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Grp_Inquiry extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Grp
+ * @package        Grp_Inquiry
+ * @copyright      Copyright (c) 2014
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<layout>
+    
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="grp_inquiry"><name>inquiry_comments</name><path>grp_inquiry/inquiry_customer_comment</path><label>Inquiries Comments</label></action>
+        </reference>
+    </customer_account>
+    <grp_inquiry_inquiry_view translate="label" module="grp_inquiry">
+        <label>Inquiry view page</label>
+        <update handle="page_two_columns_left" />
+        <reference name="content">
+            <block type="grp_inquiry/inquiry_view" name="inquiry_view" template="grp_inquiry/inquiry/view.phtml" />
+            <block type="grp_inquiry/inquiry_comment_list" name="inquiry.comments_list" as="inquiry_comment_list" template="grp_inquiry/inquiry/comment/list.phtml">
+                <block type="grp_inquiry/inquiry_comment_form" name="comment_form" as="comment_form" template="grp_inquiry/inquiry/comment/form.phtml" />
+            </block>
+        </reference>
+    </grp_inquiry_inquiry_view>
+    <grp_inquiry_inquiry_customer_comment_index translate="label" module="grp_inquiry">
+        <label>My Inquiries comments</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="grp_inquiry/inquiry_customer_comment_list" name="customer_inquiry_comments" template="grp_inquiry/inquiry/customer/comment/list.phtml"/>
+        </reference>
+    </grp_inquiry_inquiry_customer_comment_index>
+    <grp_inquiry_inquiry_customer_comment_view translate="label" module="grp_inquiry">
+        <label>My Inquiries comment view</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="grp_inquiry/inquiry_customer_comment_view" name="customer_inquiry_comment" template="grp_inquiry/inquiry/customer/comment/view.phtml"/>
+        </reference>
+    </grp_inquiry_inquiry_customer_comment_view>
+</layout>

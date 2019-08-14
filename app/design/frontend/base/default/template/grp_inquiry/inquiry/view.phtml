@@ -1,0 +1,36 @@
+<?php
+/**
+ * Grp_Inquiry extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Grp
+ * @package        Grp_Inquiry
+ * @copyright      Copyright (c) 2014
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Inquiry view template
+ *
+ * @category    Grp
+ * @package     Grp_Inquiry
+ * @author      Ultimate Module Creator
+ */
+?>
+<?php $_inquiry = $this->getCurrentInquiry();?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="page-title inquiry-title">
+    <h1><?php echo $_inquiry->getInquiries(); ?></h1>
+</div>
+<div class="inquiry-view">
+    <div class="inquiry-inquiry">
+        <?php echo Mage::helper('grp_inquiry')->__("Send inquiry?");?>:<?php echo ($_inquiry->getInquiry() == 1)?Mage::helper('inquiry')->__('Yes'):Mage::helper('inquiry')->__('No') ?>
+
+    </div>
+
+</div>

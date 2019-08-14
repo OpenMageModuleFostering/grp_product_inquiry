@@ -1,0 +1,5 @@
+.magento_close{display:block; margin:0 0 0 auto; width:15px; height:15px; background:url(../images/btn_window_close.gif) 100% 0 no-repeat; text-align:left; text-indent:-999em; overflow:hidden;}
+.inquiry-form .buttons-set{float:left;border-top: 1px solid #e4e4e4;clear: both;margin: 6px 0 0;padding: 16px 0 0;text-align: right;}
+.overlay_magento{background-color: #000000;height: 100%;left: 0;opacity: 0.75;overflow: hidden;position: absolute;top: 0;width: 100%;}
+.table_window{background-color:#fff;}
+.table_window h3{display: none;}

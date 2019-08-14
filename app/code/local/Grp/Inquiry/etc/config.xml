@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Grp_Inquiry extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Grp
+ * @package        Grp_Inquiry
+ * @copyright      Copyright (c) 2014
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <modules>
+        <grp_inquiry>
+            <version>1.0.0</version>
+        </grp_inquiry>
+    </modules>
+    <global>
+        <resources>
+            <grp_inquiry_setup>
+                <setup>
+                    <module>Grp_Inquiry</module>
+                    <class>Grp_Inquiry_Model_Resource_Setup</class>
+                </setup>
+            </grp_inquiry_setup>
+        </resources>
+        <blocks>
+            <grp_inquiry>
+                <class>Grp_Inquiry_Block</class>
+            </grp_inquiry>
+        </blocks>
+        <helpers>
+            <grp_inquiry>
+                <class>Grp_Inquiry_Helper</class>
+            </grp_inquiry>
+        </helpers>
+        <models>
+            <grp_inquiry>
+                <class>Grp_Inquiry_Model</class>
+                <resourceModel>grp_inquiry_resource</resourceModel>
+            </grp_inquiry>
+            <grp_inquiry_resource>
+                <class>Grp_Inquiry_Model_Resource</class>
+                <entities>
+                    <inquiry>
+                        <table>grp_inquiry_inquiry</table>
+                    </inquiry>
+                    <inquiry_store>
+                        <table>grp_inquiry_inquiry_store</table>
+                    </inquiry_store>
+                    <inquiry_comment>
+                        <table>grp_inquiry_inquiry_comment</table>
+                    </inquiry_comment>
+                    <inquiry_comment_store>
+                        <table>grp_inquiry_inquiry_comment_store</table>
+                    </inquiry_comment_store>
+                </entities>
+            </grp_inquiry_resource>
+        </models>
+       <template>
+            <email>
+                <inqury_customer_email_template translate="label" module="grp_inquiry">
+                    <label>Inquiry customer template</label>
+                    <file>inquiry/customer_general.html</file>
+                    <type>html</type>
+                </inqury_customer_email_template>
+                <inqury_email_template translate="label" module="grp_inquiry">
+                    <label>Inquiry general template</label>
+                    <file>inquiry/general.html</file>
+                    <type>html</type>
+                </inqury_email_template>
+            </email>
+        </template>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <grp_inquiry>
+                    <file>grp_inquiry.xml</file>
+                </grp_inquiry>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <grp_inquiry>
+                    <files>
+                        <default>Grp_Inquiry.csv</default>
+                    </files>
+                </grp_inquiry>
+            </modules>
+        </translate>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <grp_inquiry before="Mage_Adminhtml">Grp_Inquiry_Adminhtml</grp_inquiry>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+        <routers>
+            <grp_inquiry>
+                <use>standard</use>
+                <args>
+                    <module>grp_inquiry</module>
+                    <frontName>grp_inquiry</frontName>
+                </args>
+            </grp_inquiry>
+        </routers>
+        <layout>
+            <updates>
+                <grp_inquiry>
+                    <file>grp_inquiry.xml</file>
+                </grp_inquiry>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <grp_inquiry>
+                    <files>
+                        <default>Grp_Inquiry.csv</default>
+                    </files>
+                </grp_inquiry>
+            </modules>
+        </translate>
+    </frontend>
+    <default>
+        <grp_inquiry>
+            <inquiry>
+                <breadcrumbs>1</breadcrumbs>
+                <allow_comment>1</allow_comment>
+            </inquiry>
+            <email>
+               <recipient_email><![CDATA[hello@example.com]]></recipient_email>
+                <sender_email_identity>custom2</sender_email_identity>
+                <email_template>inqury_email_template</email_template>
+                <email_customer_template>inqury_customer_email_template</email_customer_template>
+            </email>
+        </grp_inquiry>
+    </default>
+</config>
