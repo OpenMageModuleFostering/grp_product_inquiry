@@ -113,7 +113,7 @@
             <grp_inquiry>
                 <use>standard</use>
                 <args>
-                    <module>grp_inquiry</module>
+                    <module>Grp_Inquiry</module>
                     <frontName>grp_inquiry</frontName>
                 </args>
             </grp_inquiry>

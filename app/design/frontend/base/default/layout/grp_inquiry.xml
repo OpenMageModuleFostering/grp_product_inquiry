@@ -18,33 +18,99 @@
 -->
 <layout>
     
-    <customer_account>
-        <reference name="customer_account_navigation">
-            <action method="addLink" translate="label" module="grp_inquiry"><name>inquiry_comments</name><path>grp_inquiry/inquiry_customer_comment</path><label>Inquiries Comments</label></action>
-        </reference>
-    </customer_account>
-    <grp_inquiry_inquiry_view translate="label" module="grp_inquiry">
-        <label>Inquiry view page</label>
-        <update handle="page_two_columns_left" />
+    <default>
+
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>css/inquiry_custom.css</stylesheet>
+            </action>
+            <action method="addJs">
+                <script>prototype/window.js</script>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>prototype/windows/themes/default.css</name>
+            </action>
+            
+        </reference>        
         <reference name="content">
-            <block type="grp_inquiry/inquiry_view" name="inquiry_view" template="grp_inquiry/inquiry/view.phtml" />
-            <block type="grp_inquiry/inquiry_comment_list" name="inquiry.comments_list" as="inquiry_comment_list" template="grp_inquiry/inquiry/comment/list.phtml">
-                <block type="grp_inquiry/inquiry_comment_form" name="comment_form" as="comment_form" template="grp_inquiry/inquiry/comment/form.phtml" />
+            <block type="core/template" name="jsscript" template="grp_inquiry/inquiry/jsscipt.phtml"/>
+        </reference>
+    </default>
+    <grp_inquiry_inquiry_product translate="label" module="grp_inquiry">
+        <label>Inquiry view page</label>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/empty.phtml</template>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>css/inquiry_custom.css</stylesheet>
+            </action>
+            <action method="addJs">
+                <script>scriptaculous/scriptaculous.js</script>
+            </action>
+            <action method="addJs">
+                <script>varien/product.js</script>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="grp_inquiry/inquiry_view" name="inquiry_view" template="grp_inquiry/inquiry/product_form.phtml" />
+        </reference>
+    </grp_inquiry_inquiry_product>
+   <catalog_category_default translate="label">
+      <reference name="product.info.addtocart">
+        <action method="setTemplate">
+            <template>grp_inquiry/product/addtocart.phtml</template>
+        </action>
+    </reference>
+   </catalog_category_default>
+   <catalog_category_layered translate="label">
+       <reference name="content">
+           <reference name="category.products">
+           <block type="catalog/product_list" name="product_list" template="grp_inquiry/product/list.phtml"/>
+           </reference>
+       </reference>
+   </catalog_category_layered>
+   <catalog_product_view translate="label">
+       <reference name="content">
+           <reference name="product.info">
+               <block type="catalog/product_view" name="product.info.addtocart" as="addtocart" template="grp_inquiry/product/addtocart.phtml"/>
+           </reference>
+           
+       </reference>
+   </catalog_product_view>
+   <PRODUCT_TYPE_simple translate="label" module="catalog">
+        <label>Catalog Product View (Simple)</label>
+        <reference name="product.info">
+            <block type="catalog/product_view_type_simple" name="product.info.simple" as="product_type_data" template="grp_inquiry/product/view/type/default.phtml">
+                <block type="core/text_list" name="product.info.simple.extra" as="product_type_data_extra" translate="label">
+                    <label>Product Extra Info</label>
+                </block>
             </block>
         </reference>
-    </grp_inquiry_inquiry_view>
-    <grp_inquiry_inquiry_customer_comment_index translate="label" module="grp_inquiry">
-        <label>My Inquiries comments</label>
-        <update handle="customer_account"/>
-        <reference name="my.account.wrapper">
-            <block type="grp_inquiry/inquiry_customer_comment_list" name="customer_inquiry_comments" template="grp_inquiry/inquiry/customer/comment/list.phtml"/>
+    </PRODUCT_TYPE_simple>
+    <PRODUCT_TYPE_configurable translate="label" module="catalog">
+        <label>Catalog Product View (Configurable)</label>
+        <reference name="product.info">
+            <block type="catalog/product_view_type_configurable" name="product.info.configurable" as="product_type_data" template="grp_inquiry/product/view/type/default.phtml">
+                <block type="core/text_list" name="product.info.configurable.extra" as="product_type_data_extra" translate="label">
+                    <label>Product Extra Info</label>
+                </block>
+            </block>
         </reference>
-    </grp_inquiry_inquiry_customer_comment_index>
-    <grp_inquiry_inquiry_customer_comment_view translate="label" module="grp_inquiry">
-        <label>My Inquiries comment view</label>
-        <update handle="customer_account"/>
-        <reference name="my.account.wrapper">
-            <block type="grp_inquiry/inquiry_customer_comment_view" name="customer_inquiry_comment" template="grp_inquiry/inquiry/customer/comment/view.phtml"/>
+        
+    </PRODUCT_TYPE_configurable>
+    
+    <PRODUCT_TYPE_virtual translate="label" module="catalog">
+        <label>Catalog Product View (Virtual)</label>
+        <reference name="product.info">
+            <block type="catalog/product_view_type_virtual" name="product.info.virtual" as="product_type_data" template="grp_inquiry/product/view/type/default.phtml">
+                <block type="core/text_list" name="product.info.virtual.extra" as="product_type_data_extra" translate="label">
+                    <label>Product Extra Info</label>
+                </block>
+            </block>
         </reference>
-    </grp_inquiry_inquiry_customer_comment_view>
+    </PRODUCT_TYPE_virtual>
 </layout>
