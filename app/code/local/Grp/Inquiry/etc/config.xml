@@ -18,9 +18,9 @@
 -->
 <config>
     <modules>
-        <grp_inquiry>
+        <Grp_Inquiry>
             <version>1.0.0</version>
-        </grp_inquiry>
+        </Grp_Inquiry>
     </modules>
     <global>
         <resources>
